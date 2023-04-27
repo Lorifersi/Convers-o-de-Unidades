@@ -1,0 +1,7 @@
+
+contador = 0
+bananaVar = ['banana', 'maca']
+for i in range(0, 10):
+    contador += 1
+    print (contador)
+
