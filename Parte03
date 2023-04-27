@@ -1,0 +1,31 @@
+medidas = ["bit", "byte", "kilobyte", "megabyte", "gigabyte","terabyte","petabyte"]
+
+valoratual = int(input("Valor a ser convertido:"))
+UniInicial = input("Unidade a ser converetida:")
+UniFinal = input("Unidade a ser convertida:")
+
+while UniInicial not in medidas :
+    print("Essa unidade não existe")
+    UniInicial = input()
+while UniFinal not in medidas :
+    print("Essa unidade não existe")
+    UniFinal = input()
+
+def conversao (valoratual, UniInicial , UniFinal):
+    valor_final = valoratual
+    if UniInicial == "bit":
+        valor_final = valor_final/8
+        UniInicial = "byte"
+
+    if medidas.index(UniInicial)<medidas.index(UniFinal):
+        for i in range(medidas.index(UniInicial),medidas.index(UniFinal)):
+            valor_final=valor_final/1024    
+
+    else:
+        for i in range (medidas.index(UniInicial), medidas.index(UniFinal),-1):
+            valor_final = valor_final *1024
+        if UniInicial == "bit":
+            valor_final = (valor_final/1024)*8
+            
+    print(valor_final)
+    conversao(valoratual, UniInicial, UniFinal)
